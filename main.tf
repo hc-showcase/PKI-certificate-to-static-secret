@@ -22,9 +22,10 @@ resource "vault_kv_secret_v2" "secret" {
   custom_metadata {
     max_versions = 5
     data = {
-      owner = "Marc",
-      usage = "App 1",
-      planned_lifetime = "1d"
+      owner            = "Marc",
+      usage            = "App 1",
+      planned_lifetime = "1d",
+      common_name      = vault_pki_secret_backend_cert.app1.common_name
     }
   }
 }
