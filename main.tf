@@ -10,7 +10,7 @@ resource "vault_pki_secret_backend_cert" "app1" {
 
 resource "vault_kv_secret_v2" "secret" {
   mount                      = "kv"
-  name                       = "app1-certificate"
+  name                       = vault_pki_secret_backend_cert.app1.common_name
   cas                        = 1
   delete_all_versions        = true
   data_json                  = jsonencode(
